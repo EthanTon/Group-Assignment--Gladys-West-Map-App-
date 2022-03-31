@@ -3,8 +3,8 @@
      Module: gladysUserInterface
      Description: This module does provides provides login and logout functionality.
 """
-import user
-import gladysUserInterface
+
+
 
 
 def add_user(username, password):
@@ -65,11 +65,12 @@ def login():
     doLogin = True
 
     while doLogin:
+        import gladysUserInterface
         username = gladysUserInterface.login_Menu_Username()
         password = gladysUserInterface.login_Menu_Password()
 
         if username == login_Stop:
-            return 1
+            return "1"
 
         with open("users.txt", "r") as user_file:
             for line in user_file:
@@ -77,9 +78,9 @@ def login():
                 if username in line:
                     if password in line:
                         print("Login successful.")
-                        user.__init__(username)
+                        # gladysUserInterface.user(username)
                         doLogin = False
-                        return 0
+                        return username
                     else:
                         print("Incorrect password.")
                 else:
