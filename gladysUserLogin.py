@@ -1,88 +1,59 @@
-"""
-     Student: Ethan Ton
-     Module: gladysUserInterface
-     Description: This module does provides provides login and logout functionality.
-"""
 
-
-
-
-def add_user(username, password):
+# Create a new user
+def check_email(username):
     """
-    This function adds a new user to user.txt.
+    Check if the email is valid
     """
-    with open("users.txt", "w") as user_file:
-        user_file.write(username + "," + password + "\n")
+    if "@" in username or "." in username:
+        return True
+    else:
+        return False
 
-
-def get_active_user():
+def ask_for_email():
     """
-    This function returns the active user.
+    Ask for an email
     """
-    with open("users.txt", "r") as user_file:
-        for line in user_file:
-            username, password = line.split(",")
-            return username
+    email = input("Enter your email: ")
+    # print (email)
+    if check_email(email) == False:
+        print("Invalid email")
+        email = ask_for_email()
+    return email
 
-
-def check_avaiblity(username):
+def ask_for_password():
     """
-    This function checks if the username is available.
+    Ask for a password
     """
-    with open("users.txt", "r") as user_file:
-        for line in user_file:
-            if username in line:
-                return False
-    return True
+    password = input("Enter your password: ")
+    return password
 
-
-def create_account():
+def set_password():
     """
-    This function creates a new account for the user.
+    Sets a password
     """
-    username = raw_input("Please enter your email address: ")
+    password = input("Enter your password: ")
+    if len(password) < 1:
+        print("Password must be at least 1 character long")
+        password = set_password()
+    return password
 
-    while (username.find("@") == -1 or username.find(".") == -1):
-        print("Invalid email address.")
-        username = raw_input("Please enter your email address: ")
+def create_user():
+    """
+    Create a new user
+    """
+    email = ask_for_email()
+    password = set_password()
 
-    while not check_avaiblity(username):
-        username = raw_input(
-            "Username already exists. Please enter a new username: ")
+    user_file = open("users.txt", "a")
+    user_file.write(email + "," + password + "\n")
 
-    password = raw_input("Please enter a password: ")
-    add_user(username, password)
-    print("Account created successfully.")
 
 
 def login():
-    """
-    This function logs in the user.
-    """
-    login_Stop = "break"
     
 
-    doLogin = True
 
-    while doLogin:
-        import gladysUserInterface
-        username = gladysUserInterface.login_Menu_Username()
-        password = gladysUserInterface.login_Menu_Password()
+# create_user()  
+    
 
-        if username == login_Stop:
-            return "1"
 
-        with open("users.txt", "r") as user_file:
-            for line in user_file:
-                user_file.read().strip().split(",")
-                if username in line:
-                    if password in line:
-                        print("Login successful.")
-                        # gladysUserInterface.user(username)
-                        doLogin = False
-                        return username
-                    else:
-                        print("Incorrect password.")
-                else:
-                    print("Your password or username is incorrect. Try Again.")
-                    print("Make sure you have an account. If you don't, create one.")
