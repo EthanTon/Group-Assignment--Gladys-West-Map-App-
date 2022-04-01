@@ -1,6 +1,23 @@
-import gladysUserInterface
+
 
 # Create a new user
+# Login Interface for Gladys
+
+
+def ask_for_email():
+    """
+    Ask for an email
+    """
+    email = input("Enter your email: ")
+    return email
+
+
+def ask_for_password():
+    """
+    Ask for a password
+    """
+    password = input("Enter your password: ")
+    return password
 
 
 def check_email(username):
@@ -17,10 +34,10 @@ def set_email():
     """
     Sets an email
     """
-    email = gladysUserInterface.ask_for_email()
+    email = ask_for_email()
     if check_email(email) == False:
         print("Invalid email")
-        email = set_email()
+        return set_email()
     return email
 
 
@@ -28,7 +45,7 @@ def set_password():
     """
     Sets a password
     """
-    password = gladysUserInterface.ask_for_password()
+    password = ask_for_password()
     if len(password) < 1:
         print("Password must be at least 1 character long")
         password = set_password()
@@ -64,31 +81,32 @@ def login():
     """
     Login
     """
-    print("Type \" break \" to go back to login menu")
+    print("\n"+"Type \" break \" to go back to login menu")
 
-    email = gladysUserInterface.ask_for_email()
-    password = gladysUserInterface.ask_for_password()
+
+    email = ask_for_email()
+    password = ask_for_password()
+
+    # print(email)
+    
     if email == "break":
         return "back"
     elif search_for_user(email) == False:
         print("User not found! Make sure you have an account")
-        login()
-    elif email == "break":
-        return "back"
+        return login()
     else:
         user_file = open("users.txt", "r")
         for line in user_file:
-            print(user_file)
+            # print(user_file)
             user_file = line.split(",")
-            print(user_file)
+            # print(user_file)
             if email == user_file[0] and password == user_file[1]:
-                print("Login successful")
-                user_file.close()
+                # print("Login successful")
                 return email
         print("Wrong password")
-        login()
+        return login()
 
 
 # create_user()
 
-print(login())
+# print(login())
