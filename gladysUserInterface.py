@@ -32,6 +32,28 @@ def login_menu():
      selection = selection.upper()
 
      return selection
+     
+def main_menu(user):
+     """
+     Main menu
+     """
+     print("")
+     print("Main Menu"+"\n"+"---------------------")
+     print("User: " + user)
+     print("""
+     ---------------------
+     [C] Set current position
+     [D] Set destination position
+     [M] Set distance - Map 
+     [T] Run test module
+     ---------------------
+     """)
+
+     selection = input("Enter your selection: ")
+
+     selection = selection.upper()
+
+     return selection
 
 # main
 def main():
@@ -59,5 +81,6 @@ def main():
      else:
           print("Invalid input")
           return main()
+     main_menu(user)
 
 print(main())
