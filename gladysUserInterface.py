@@ -1,4 +1,12 @@
+import random
 import gladysUserLogin
+import gladysSatellite
+
+def runTests():
+     gladysUserLogin.login()
+     print(gladysSatellite.readSat(random.choice(["time","altitude","latitude","longitude"])))
+     gladysSatellite.gpsValue(random.randint(0,99),random.randint(0,99), random.choice(["time","altitude","latitude","longitude"]))
+     print("Test module complete")
 
 def getX():
      try: 
@@ -135,7 +143,7 @@ def main():
                print("In development")
           elif menu_selection == "T":
                # Run test module
-               print("In development")
+               runTests()
           elif menu_selection == "Q":
                print("Exiting...")
                runMenu = False
