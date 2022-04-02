@@ -57,10 +57,6 @@ def main_menu(user, user_xpos, user_ypos, destination_xpos, destination_ypos, di
      print("Destination: " + str(destination_xpos) + "," + str(destination_ypos))
      print("Distance: " + str(distance))
 
-     print("Current Position: ")
-     print("Destination: ")
-     print("Distance: ")
-
      print("""
 ---------------------
 [C] Set current position
@@ -91,8 +87,9 @@ def main():
 
      distance = 0
 
-     # login
 
+     # login
+     
      login_input = login_menu()
      if login_input == "L":
           email = gladysUserLogin.login()
