@@ -1,6 +1,8 @@
+from cmath import sqrt
 import random
 import gladysUserLogin
 import gladysSatellite
+import gladysCompute
 
 def runTests():
      gladysUserLogin.login()
@@ -81,7 +83,7 @@ def main_menu(user, user_xpos, user_ypos, destination_xpos, destination_ypos, di
 
      return selection
 
-# main
+# main: Runs the entire program
 
 
 def main():
@@ -92,8 +94,6 @@ def main():
 
      destination_xpos = 0
      destination_ypos = 0
-
-     distance = 0
 
 
      # login
@@ -126,6 +126,8 @@ def main():
 
      while runMenu == True:
 
+          distance = sqrt((gladysCompute.gpsAverage(user_xpos, user_ypos))*(gladysCompute.gpsAverage(user_xpos, user_ypos)) + (gladysCompute.gpsAverage(destination_xpos, destination_ypos))*(gladysCompute.gpsAverage(destination_xpos, destination_ypos)))
+
           menu_selection = main_menu(user, user_xpos, user_ypos, destination_xpos, destination_ypos, distance)
 
           # print(menu_selection)
@@ -140,7 +142,9 @@ def main():
                destination_ypos = getY()
           elif menu_selection == "M":
                # Run map
-               print("In development")
+               print("---------------------")
+               print("distance = " + str(distance))
+               print("---------------------")
           elif menu_selection == "T":
                # Run test module
                runTests()
