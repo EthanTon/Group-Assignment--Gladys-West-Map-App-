@@ -126,7 +126,7 @@ def main():
 
      while runMenu == True:
 
-          distance = sqrt((gladysCompute.gpsAverage(user_xpos, user_ypos))*(gladysCompute.gpsAverage(user_xpos, user_ypos)) + (gladysCompute.gpsAverage(destination_xpos, destination_ypos))*(gladysCompute.gpsAverage(destination_xpos, destination_ypos)))
+          distance = gladysCompute.gpsDistance(user_xpos, user_ypos, destination_xpos, destination_ypos)
 
           menu_selection = main_menu(user, user_xpos, user_ypos, destination_xpos, destination_ypos, distance)
 
