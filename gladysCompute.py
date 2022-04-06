@@ -12,7 +12,7 @@ def gpsDistance(user_xpos, user_ypos, destination_xpos, destination_ypos):
     """
     Calculate the distance between two GPS coordinates
     """
-    return (((gladysAverage(user_xpos, user_ypos)))**2 + (gladysAverage(destination_xpos, destination_ypos)**2))**0.5
+    return (((gpsAverage(user_xpos, user_ypos)))**2 + (gpsAverage(destination_xpos, destination_ypos)**2))**0.5
 
 
 # # print(gpsAverage(0,0))
