@@ -1,5 +1,9 @@
 
-
+"""
+    Student: Ethan Ton
+    Module: gladysUserLogin.py
+    Description: This module allows creates a user and logs in.
+"""
 # Create a new user
 # Login Interface for Gladys
 

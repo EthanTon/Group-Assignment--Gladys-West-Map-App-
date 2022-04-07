@@ -1,3 +1,9 @@
+"""
+     Student: Ethan Ton
+     Module: gladysUserInterface
+     Description: This is the main system to display the menu and run the code.
+"""
+
 from cmath import sqrt
 import random
 import gladysUserLogin
