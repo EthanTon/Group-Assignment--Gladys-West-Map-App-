@@ -1,3 +1,8 @@
+# start of code by Zyed Ismailijee
+
+
+
+
 import gladysSatellite as sat
 
 
@@ -55,3 +60,6 @@ def gpsDistance(user_xpos, user_ypos, destination_xpos, destination_ypos):
 
 #     distance = gpsAverage(3, 4)
 #     return distance
+
+
+# end of code by Ethan Ton

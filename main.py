@@ -1,3 +1,8 @@
+"""
+    Student: Ethan Ton
+    Module: main.py
+    Description: This module allows the code to be run.
+"""
 import io
 import gladysUserInterface as userInterface
 """
